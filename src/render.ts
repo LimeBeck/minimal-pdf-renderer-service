@@ -13,7 +13,9 @@ export class PuppeteerPdfRenderer implements PdfRenderer {
 
   static async build() {
     console.log("<f05eb76d> Starting browser...");
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ['--disable-dev-shm-usage', '--no-sandbox'],
+    });
     console.log("<c70b53cf> Browser started");
     return new PuppeteerPdfRenderer(browser);
   }
