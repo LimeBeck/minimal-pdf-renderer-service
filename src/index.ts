@@ -12,7 +12,7 @@ const scopeService = new ScopeService(new ScopeIdGenerator());
 
 (async () => {
   const renderer = await PuppeteerPdfRenderer.build();
-  app.get("/render", async (req, res) => {
+  app.get("/api/render", async (req, res) => {
     const scope = scopeService.createScope("Render page to PDF");
     console.log(
       `<dc2d96c3> ${scope} Get request with url params ${inspect(req.query, 10)}`
